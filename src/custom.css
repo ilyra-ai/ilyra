@@ -1,0 +1,19 @@
+:root {
+    --color-primary: #3366FF;
+    --color-secondary: #7B61FF;
+    --color-accent: #FF977B;
+    --color-success: #2ECC71;
+    --color-warning: #F1C40F;
+    --color-error: #E74C3C;
+    --color-background: #FFFFFF;
+    --color-text: #263244;
+    --color-border: #E2E8F0;
+    --color-card: #F1F5F9;
+    --color-input: #F8FAFC;
+    --font-family: Inter, sans-serif;
+    --font-size: 16px;
+    --sm-breakpoint: 640px;
+    --md-breakpoint: 768px;
+    --lg-breakpoint: 1024px;
+    --xl-breakpoint: 1280px;
+  }

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 51 102 255;
+    --color-primary-light: 102 136 255;
+    --color-secondary: 123 97 255;
+    --color-accent: 255 97 123;
+    --color-success: 46 204 113;
+    --color-warning: 241 196 15;
+    --color-error: 231 76 60;
+    --color-background-light: 255 255 255;
+    --color-background-dark: 16 20 30;
+    --color-text-light: 255 255 255;
+    --color-text-dark: 26 32 44;
+  }
+
+  .theme-dark {
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-light);
+    --color-border: 55 65 81;
+    --color-card: 30 37 55;
+    --color-input: 45 55 72;
+  }
+
+  .theme-light {
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-dark);
+    --color-border: 226 232 240;
+    --color-card: 241 245 249;
+    --color-input: 248 250 252;
+  }
+
+  body {
+    @apply bg-background text-text font-sans transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 ease-in-out;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-light;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-opacity-90;
+  }
+
+  .btn-outline {
+    @apply border border-border bg-transparent hover:bg-card;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all hover:bg-card;
+  }
+
+  .sidebar-item.active {
+    @apply bg-card;
+  }
+
+  .chat-message {
+    @apply p-4 md:p-6 flex gap-3 md:gap-4 border-b border-border; /* Adjusted padding and gap */
+  }
+
+  .user-message {
+    @apply bg-card/50;
+  }
+
+  .assistant-message {
+    @apply bg-background;
+  }
+
+  .message-content {
+    /* Adjusted prose styles for better readability */
+    @apply prose prose-sm sm:prose-base max-w-none dark:prose-invert
+           prose-p:leading-relaxed
+           prose-ul:list-disc prose-ul:pl-5
+           prose-ol:list-decimal prose-ol:pl-5
+           prose-li:marker:text-primary
+           prose-a:text-primary prose-a:underline hover:prose-a:no-underline
+           prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:pl-4 prose-blockquote:italic;
+  }
+
+  .input-container {
+    @apply bg-input rounded-xl border border-border px-4 py-3 flex items-end;
+  }
+
+  .dropdown-menu {
+    @apply absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-card border border-border z-50;
+  }
+
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm hover:bg-primary hover:text-white cursor-pointer;
+  }
+
+  /* Imprima font class */
+  .imprima-regular {
+    font-family: "Imprima", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+   /* Typing indicator animation */
+   .typing-indicator {
+     display: flex;
+     align-items: center;
+     gap: 4px; /* Space between dots */
+   }
+
+   .typing-indicator .dot {
+     width: 6px;
+     height: 6px;
+     background-color: theme('colors.text.DEFAULT'); /* Use text color */
+     border-radius: 50%;
+     animation: bounce 1.4s infinite ease-in-out both;
+   }
+
+   .typing-indicator .dot:nth-child(1) {
+     animation-delay: -0.32s;
+   }
+
+   .typing-indicator .dot:nth-child(2) {
+     animation-delay: -0.16s;
+   }
+
+   @keyframes bounce {
+     0%, 80%, 100% {
+       transform: scale(0);
+     }
+     40% {
+       transform: scale(1);
+     }
+   }
+}
